@@ -38,8 +38,7 @@ We can make our context manager using classes. We must ensure that this class ha
 ### <i>Let us understand with an example of file management using context manager</i>
 
 ```
- 
-class FileManager():
+class CustomFileContextManager():
     def __init__(self, filename, mode):
         self.filename = filename
         self.mode = mode
@@ -52,9 +51,8 @@ class FileManager():
     def __exit__(self, exc_type, exc_value, exc_traceback):
         self.file.close()
  
-# loading a file
-with FileManager('test.txt', 'w') as f:
-    f.write('Test')
+with CustomFileContextManager('testing.txt', 'w') as f:
+    f.write('Testing context manager')
  
 print(f.closed)
 ```
